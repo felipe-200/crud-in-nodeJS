@@ -1,0 +1,29 @@
+<div class="card">
+    <div class="card-body">
+        <h4>Editar usuario</h4>
+        <form action="/edit" method="POST">
+            <div class="form-group">
+                <input name="id" type="hidden" value="{{users._id}}">
+                <label for="firstName">Nome</label>
+                    <input type="text" name="firstName" id="firstName" class="form-control" value="{{users.firstName}}" required >
+                <label for="LastName">Sobrenome</label>
+                    <input type="text" name="lastName" id="LastName" class="form-control" required value="{{users.lastName}}">
+                <label for="cpf">CPF</label>
+                    <input type="number" name="cpf" id="cpf" class="form-control" required value="{{users.cpf}}">
+                <label for="age">Idade</label>
+                    <input type="number" name="age" id="age" class="form-control" required value="{{users.age}}">
+                <button type="submit" id="btnElement" class="btn btn-success mt-4"> Editar </button>
+            </div>
+        </form>
+    </div>
+</div>
+<script>
+    var buttonElement = document.getElementById("btnElement")
+        buttonElement.addEventListener("click", () => {
+        var cpf = document.getElementById("cpf")
+        if(cpf.value.length < 11 || cpf.value.length > 11){
+            event.preventDefault()
+            alert("Por favor digite um cpf válido")
+        }
+    })
+</script>

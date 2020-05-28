@@ -1,0 +1,28 @@
+<div class="card">
+    <div class="card-body">
+        <h4>Adicionar usuario</h4>
+        <form action="/addusers/cad" method="POST">
+            <div class="form-group">
+                <label for="firstName">Nome</label>
+                    <input type="text" name="firstName" id="firstName" class="form-control" required>
+                <label for="LastName">Sobrenome</label>
+                    <input type="text" name="lastName" id="LastName" class="form-control" required>
+                <label for="cpf">CPF</label>
+                    <input type="number" name="cpf" id="cpf" class="form-control" required>
+                <label for="age">Idade</label>
+                    <input type="number" name="age" id="age" class="form-control" required>
+                <button type="submit" id="btnElement" class="btn btn-success mt-4"> Cadastrar </button>
+            </div>
+        </form>
+    </div>
+</div>
+<script>
+    var buttonElement = document.getElementById("btnElement")
+        buttonElement.addEventListener("click", () => {
+        var cpf = document.getElementById("cpf")
+        if(cpf.value.length < 11 || cpf.value.length > 11){
+            event.preventDefault()
+            alert("Por favor digite um cpf válido")
+        }
+    })
+</script>
